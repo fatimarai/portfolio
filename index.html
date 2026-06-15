@@ -686,6 +686,47 @@
         }
 
         @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Nav: logo left, links centered, toggle right — but compact */
+            nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: space-between;
+            }
+
+            .nav-right {
+                gap: 16px !important;
+                flex: 1;
+                justify-content: space-between;
+            }
+
+            .nav-right ul {
+                gap: 16px !important;
+                flex: 1;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 40px 0 60px;
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
@@ -702,17 +743,28 @@
                 justify-content: center;
             }
 
-            nav ul {
-                gap: 24px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
             .contact-email {
                 padding: 16px 28px;
                 font-size: 16px;
+            }
+        }
+
+        /* Even smaller phones */
+        @media (max-width: 400px) {
+            nav a {
+                font-size: 11px;
+            }
+
+            .nav-right {
+                gap: 8px !important;
+            }
+
+            .nav-right ul {
+                gap: 12px !important;
+            }
+
+            .hero h1 {
+                font-size: 30px;
             }
         }
     </style>
