@@ -862,17 +862,17 @@
                             type="button"
                             class="case-image-main"
                             onclick="openLightbox(this)"
-                            aria-label="View full transabdominal ultrasound - main image">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop"
-                                 alt="Transabdominal ultrasound scan of pelvic region showing ovarian imaging">
+                            aria-label="View full transvaginal ultrasound of ovarian follicles - main image">
+                            <img src="images/ovary-follicles.jpeg"
+                                 alt="Transvaginal ultrasound showing ovarian follicles with diameter measurements (0.98cm, 0.80cm, 1.00cm, 0.53cm)">
                         </button>
                         <button
                             type="button"
                             class="case-image-secondary"
                             onclick="openLightbox(this)"
-                            aria-label="View transabdominal ultrasound - detail view">
-                            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=400&fit=crop"
-                                 alt="Detail view of ovarian volume measurement on transabdominal ultrasound">
+                            aria-label="View detail measurement view of ovarian follicles">
+                            <img src="images/ovary-follicles.jpeg"
+                                 alt="Detail view of ovarian follicle measurement on transvaginal ultrasound">
                         </button>
                     </div>
                 </div>
@@ -1027,7 +1027,7 @@
         function openLightbox(button) {
             const img = button.querySelector('img');
             lastFocusedElement = document.activeElement;
-            lightboxImg.src = img.src.replace('w=800&h=600', 'w=1400&h=1050').replace('w=400&h=400', 'w=1000&h=1000');
+            lightboxImg.src = img.src;
             lightboxImg.alt = img.alt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
