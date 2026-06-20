@@ -228,9 +228,7 @@
         }
 
         function getColor() {
-            return root.getAttribute('data-theme') === 'light'
-                ? '196, 106, 59'
-                : '224, 139, 92';
+            return '200, 240, 79';
         }
 
         function draw() {

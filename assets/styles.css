@@ -19,14 +19,17 @@
     --text: #f5f5f0;
     --text-secondary: #a8a29e;
     --text-muted: #78716c;
-    --accent: #e08b5c;
-    --accent-light: #f4a77d;
-    --accent-dark: #b86a3f;
+    --accent: #c8f04f;
+    --accent-rgb: 200, 240, 79;
+    --accent-light: #d8f66f;
+    --accent-dark: #a5c93f;
+    --accent-readable: #c8f04f;
+    --accent-text: #0c0a09;
     --sage: #7c8f7e;
     --sage-light: #9bafa0;
     --border: #292524;
     --border-subtle: rgba(245, 245, 240, 0.08);
-    --focus: #e08b5c;
+    --focus: #c8f04f;
     --shadow: rgba(0, 0, 0, 0.45);
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
@@ -39,14 +42,17 @@
     --text: #1c1917;
     --text-secondary: #57534e;
     --text-muted: #a8a29e;
-    --accent: #c46a3b;
-    --accent-light: #e08b5c;
-    --accent-dark: #9c4f25;
+    --accent: #c8f04f;
+    --accent-rgb: 200, 240, 79;
+    --accent-light: #d8f66f;
+    --accent-dark: #a5c93f;
+    --accent-readable: #7a9125;
+    --accent-text: #0c0a09;
     --sage: #5f7361;
     --sage-light: #7c8f7e;
     --border: #e7e5e4;
     --border-subtle: rgba(28, 25, 23, 0.08);
-    --focus: #c46a3b;
+    --focus: #7a9125;
     --shadow: rgba(0, 0, 0, 0.08);
 }
 
@@ -58,14 +64,17 @@
         --text: #1c1917;
         --text-secondary: #57534e;
         --text-muted: #a8a29e;
-        --accent: #c46a3b;
-        --accent-light: #e08b5c;
-        --accent-dark: #9c4f25;
+        --accent: #c8f04f;
+        --accent-rgb: 200, 240, 79;
+        --accent-light: #d8f66f;
+        --accent-dark: #a5c93f;
+        --accent-readable: #7a9125;
+        --accent-text: #0c0a09;
         --sage: #5f7361;
         --sage-light: #7c8f7e;
         --border: #e7e5e4;
         --border-subtle: rgba(28, 25, 23, 0.08);
-        --focus: #c46a3b;
+        --focus: #7a9125;
         --shadow: rgba(0, 0, 0, 0.08);
     }
 }
@@ -89,7 +98,7 @@ body {
 
 ::selection {
     background: var(--accent);
-    color: var(--bg);
+    color: var(--accent-text);
 }
 
 img {
@@ -146,7 +155,7 @@ button {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--accent);
+    color: var(--accent-readable);
     font-weight: 500;
 }
 
@@ -156,7 +165,7 @@ button {
     top: -100%;
     left: 1.5rem;
     background: var(--accent);
-    color: var(--bg);
+    color: var(--accent-text);
     padding: 0.875rem 1.5rem;
     border-radius: 100px;
     font-weight: 600;
@@ -266,7 +275,7 @@ button {
 .cursor-ring.hover {
     width: 64px;
     height: 64px;
-    background: rgba(224, 139, 92, 0.12);
+    background: rgba(var(--accent-rgb), 0.12);
     border-color: transparent;
 }
 
@@ -318,7 +327,7 @@ button {
 }
 
 .logo span {
-    color: var(--accent);
+    color: var(--accent-readable);
 }
 
 .nav-links {
@@ -444,7 +453,7 @@ button {
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(224, 139, 92, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.18) 0%, transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -510,7 +519,7 @@ button {
 
 .hero h1 .italic {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-readable);
     font-weight: 500;
 }
 
@@ -556,17 +565,17 @@ button {
     gap: 0.75rem;
     padding: 1rem 2rem;
     background: var(--accent);
-    color: var(--bg);
+    color: var(--accent-text);
     border-radius: 100px;
     font-weight: 600;
     font-size: 0.9rem;
     transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s;
-    box-shadow: 0 10px 40px rgba(224, 139, 92, 0.25);
+    box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.25);
 }
 
 .hero-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 50px rgba(224, 139, 92, 0.35);
+    box-shadow: 0 16px 50px rgba(var(--accent-rgb), 0.35);
 }
 
 .hero-cta svg {
@@ -636,7 +645,7 @@ button {
 
 .section-title .italic {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-readable);
     font-weight: 500;
 }
 
@@ -685,7 +694,7 @@ button {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-readable);
 }
 
 .case-stat-label {
@@ -796,7 +805,7 @@ button {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(224, 139, 92, 0.1), transparent 60%);
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(var(--accent-rgb), 0.1), transparent 60%);
     opacity: 0;
     transition: opacity 0.4s;
 }
@@ -806,7 +815,7 @@ button {
 }
 
 .expertise-card:hover {
-    border-color: rgba(224, 139, 92, 0.3);
+    border-color: rgba(var(--accent-rgb), 0.3);
     box-shadow: 0 20px 50px var(--shadow);
 }
 
@@ -893,7 +902,7 @@ button {
 .timeline-year {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
-    color: var(--accent);
+    color: var(--accent-readable);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 0.5rem;
@@ -932,7 +941,7 @@ button {
 
 .blog-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(224, 139, 92, 0.3);
+    border-color: rgba(var(--accent-rgb), 0.3);
     box-shadow: 0 20px 50px var(--shadow);
 }
 
@@ -969,7 +978,7 @@ button {
 }
 
 .blog-card:hover .blog-card-arrow svg {
-    stroke: var(--bg);
+    stroke: var(--accent-text);
 }
 
 .blog-card h3 {
@@ -1002,7 +1011,7 @@ button {
 
 .contact-title .italic {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-readable);
     font-weight: 500;
 }
 
@@ -1031,9 +1040,9 @@ button {
 .contact-email:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--bg);
+    color: var(--accent-text);
     transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(224, 139, 92, 0.25);
+    box-shadow: 0 20px 50px rgba(var(--accent-rgb), 0.25);
 }
 
 .contact-email svg {
@@ -1123,6 +1132,7 @@ button {
 
 .lightbox-close:hover {
     background: var(--accent);
+    color: var(--accent-text);
     transform: rotate(90deg);
 }
 

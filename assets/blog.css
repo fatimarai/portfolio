@@ -24,7 +24,7 @@
 }
 
 .back-link:hover {
-    color: var(--accent);
+    color: var(--accent-readable);
     transform: translateX(-4px);
 }
 
@@ -39,7 +39,7 @@
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--accent);
+    color: var(--accent-readable);
     border: 1px solid var(--border);
     padding: 0.45rem 0.9rem;
     border-radius: 100px;
@@ -133,7 +133,7 @@
 }
 
 .related-callout a {
-    color: var(--accent);
+    color: var(--accent-readable);
     font-weight: 600;
     transition: opacity 0.3s;
 }
@@ -161,7 +161,7 @@
 }
 
 .grid-card:hover {
-    border-color: rgba(224, 139, 92, 0.3);
+    border-color: rgba(var(--accent-rgb), 0.3);
     transform: translateY(-3px);
     box-shadow: 0 12px 30px var(--shadow);
 }
@@ -169,20 +169,20 @@
 .grid-card-icon {
     width: 40px;
     height: 40px;
-    background: rgba(224, 139, 92, 0.1);
+    background: rgba(var(--accent-rgb), 0.1);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    color: var(--accent);
+    color: var(--accent-readable);
 }
 
 .grid-card-num {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-readable);
     margin-bottom: 0.5rem;
 }
 
@@ -262,7 +262,7 @@
 }
 
 .clinical-note strong {
-    color: var(--accent);
+    color: var(--accent-readable);
 }
 
 /* Key takeaways */
@@ -276,7 +276,7 @@
 
 .key-takeaways h2 {
     margin-top: 0;
-    color: var(--accent);
+    color: var(--accent-readable);
     font-size: 1.5rem;
 }
 
@@ -324,18 +324,18 @@
     align-items: center;
     gap: 0.5rem;
     background: var(--accent);
-    color: var(--bg);
+    color: var(--accent-text);
     padding: 1rem 1.75rem;
     border-radius: 100px;
     font-weight: 600;
     font-size: 0.9rem;
     transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s;
-    box-shadow: 0 10px 30px rgba(224, 139, 92, 0.2);
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.2);
 }
 
 .article-cta a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 40px rgba(224, 139, 92, 0.3);
+    box-shadow: 0 14px 40px rgba(var(--accent-rgb), 0.3);
 }
 
 .article-cta a svg {
@@ -373,7 +373,7 @@
     top: 0;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
-    color: var(--accent);
+    color: var(--accent-readable);
     font-weight: 500;
     width: 2rem;
     height: 2rem;
