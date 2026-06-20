@@ -4,557 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A comprehensive clinical guide to liver ultrasound covering clinical indications, examination technique, normal sonographic anatomy, and common pathological findings. By Fatima Rai, BMIS radiographer.">
-    <meta name="theme-color" content="#0a0f0d">
+    <meta name="theme-color" content="#0c0a09">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
     <title>Liver Ultrasound: A Comprehensive Clinical Guide — Fatima Rai</title>
     <link rel="canonical" href="https://fatimarai.com/blog/liver-ultrasound.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e08b5c'/%3E%3Ctext x='50' y='68' font-family='serif' font-size='55' fill='%230c0a09' text-anchor='middle' font-weight='600'%3EF%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ==================== ACCESSIBILITY (WCAG 2.1 AA) ==================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #0a0f0d;
-            --bg-secondary: #111613;
-            --bg-card: #1a211e;
-            --text: #f0f4f2;
-            --text-secondary: #c5cfc9;
-            --text-muted: #8a948e;
-            --primary: #2dd4bf;
-            --primary-text: #0a0f0d;
-            --primary-light: #0d2a27;
-            --accent: #fcd34d;
-            --accent-light: #2a2412;
-            --border: #3a4540;
-            --focus: #2dd4bf;
-            --shadow: rgba(0, 0, 0, 0.4);
-        }
-
-        [data-theme="light"] {
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f0;
-            --bg-card: #fafaf7;
-            --text: #0a0f0d;
-            --text-secondary: #3d4a44;
-            --text-muted: #5c6660;
-            --primary: #0d8a7c;
-            --primary-text: #ffffff;
-            --primary-light: #e0f5f1;
-            --accent: #b45309;
-            --accent-light: #fef3c7;
-            --border: #d4d4ce;
-            --focus: #0d8a7c;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root:not([data-theme]) {
-                --bg: #ffffff;
-                --bg-secondary: #f5f5f0;
-                --bg-card: #fafaf7;
-                --text: #0a0f0d;
-                --text-secondary: #3d4a44;
-                --text-muted: #5c6660;
-                --primary: #0d8a7c;
-                --primary-text: #ffffff;
-                --primary-light: #e0f5f1;
-                --accent: #b45309;
-                --accent-light: #fef3c7;
-                --border: #d4d4ce;
-                --focus: #0d8a7c;
-                --shadow: rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 16px;
-            background: var(--primary);
-            color: var(--primary-text);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            z-index: 9999;
-            transition: top 0.2s;
-        }
-
-        .skip-link:focus { top: 16px; outline: 3px solid var(--accent); outline-offset: 2px; }
-
-        :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
-
-        /* Navigation */
-        nav {
-            padding: 28px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 24px;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .logo span { color: var(--accent); }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-        }
-
-        .nav-right ul {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 8px 4px;
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-secondary);
-            border-color: var(--primary);
-        }
-
-        /* Article */
-        .article {
-            padding: 60px 0 100px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 32px;
-            font-weight: 500;
-        }
-
-        .back-link:hover { color: var(--primary); }
-
-        .article-tag {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-        }
-
-        .article h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 48px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .article-meta strong { color: var(--text-secondary); }
-
-        .article h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 600;
-            margin-top: 48px;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-            color: var(--text);
-        }
-
-        .article p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .article ul, .article ol {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            padding-left: 24px;
-        }
-
-        .article ul li, .article ol li {
-            margin-bottom: 8px;
-            line-height: 1.8;
-        }
-
-        .article ol { padding-left: 28px; }
-
-        .article strong { color: var(--text); }
-
-        .key-takeaways {
-            background: var(--primary-light);
-            border-left: 4px solid var(--primary);
-            padding: 28px 32px;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-
-        .key-takeaways h2 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 22px;
-        }
-
-        .key-takeaways ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 0;
-        }
-
-        .key-takeaways ul li {
-            position: relative;
-            padding-left: 28px;
-        }
-
-        .key-takeaways ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .article-cta {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            margin-top: 56px;
-            text-align: center;
-        }
-
-        .article-cta p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .article-cta a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: var(--primary-text);
-            padding: 14px 28px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .article-cta a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--shadow);
-        }
-
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 80px;
-        }
-
-        footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        footer a:hover { color: var(--primary); }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* ==================== GRID CARDS ==================== */
-        .grid {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .grid-2 { grid-template-columns: repeat(2, 1fr); }
-        .grid-3 { grid-template-columns: repeat(3, 1fr); }
-        .grid-4 { grid-template-columns: repeat(4, 1fr); }
-
-        .grid-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .grid-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .grid-card-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-light);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        .grid-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text);
-        }
-
-        .grid-card-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .grid-card-num {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--primary-text);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 28px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .grid-card-title strong { color: var(--primary); }
-
-        /* Tables for clinical data */
-        .clinical-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 24px;
-            font-size: 14px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .clinical-table th,
-        .clinical-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .clinical-table th {
-            background: var(--primary-light);
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .clinical-table tr:last-child td { border-bottom: none; }
-
-        .clinical-table td { color: var(--text-secondary); }
-        .clinical-table td strong { color: var(--text); }
-
-        /* Numbered list inside text */
-        .numbered-list {
-            counter-reset: step;
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 24px;
-        }
-
-        .numbered-list li {
-            position: relative;
-            padding-left: 44px;
-            margin-bottom: 16px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .numbered-list li::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 2px;
-            width: 28px;
-            height: 28px;
-            background: var(--primary);
-            color: var(--primary-text);
-            border-radius: 50%;
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 28px;
-            text-align: center;
-        }
-
-        .clinical-note {
-            background: var(--bg-card);
-            border-left: 3px solid var(--accent);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-size: 15px;
-            color: var(--text-secondary);
-        }
-
-        .clinical-note strong { color: var(--accent); }
-
-        .article h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 32px;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        @media (max-width: 900px) {
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 640px) {
-            .container { padding: 0 20px; }
-            .article h1 { font-size: 32px; }
-            .article h2 { font-size: 22px; }
-            .nav-right ul { gap: 16px !important; }
-            .nav-right { gap: 16px !important; }
-            nav a { font-size: 12px; }
-            .article { padding: 40px 0 60px; }
-            footer { flex-direction: column; gap: 12px; text-align: center; }
-            .clinical-table { font-size: 13px; }
-            .clinical-table th,
-            .clinical-table td { padding: 10px 12px; }
-        }
-
-        @media (max-width: 560px) {
-            .grid-2,
-            .grid-3,
-            .grid-4 { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="../assets/blog.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="container">
-        <nav aria-label="Primary navigation">
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-text">
+            <span>Fatima</span><span>Rai</span>
+        </div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <header class="navbar" role="banner">
+        <div class="navbar-inner">
             <a href="../index.html" class="logo" aria-label="Fatima Rai - Home">Fatima<span aria-hidden="true">.</span>Rai</a>
-            <div class="nav-right">
-                <ul>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
                     <li><a href="../index.html#case-study">Case Study</a></li>
+                    <li><a href="../index.html#expertise">Expertise</a></li>
                     <li><a href="../index.html#about">About</a></li>
                     <li><a href="abdominal-ultrasound.html">Blog</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
-                <button
-                    type="button"
-                    class="theme-toggle"
-                    id="theme-toggle"
-                    aria-label="Switch to light theme"
-                    title="Switch theme">
-                    <span id="theme-icon" aria-hidden="true">☀</span>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme" title="Switch theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle class="sun-rays" cx="12" cy="12" r="5"></circle>
+                        <g class="sun-rays">
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </g>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button type="button" class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
                 </button>
             </div>
-        </nav>
+        </div>
+    </header>
 
-        <main id="main-content">
-            <article class="article">
-                <a href="abdominal-ultrasound.html" class="back-link" aria-label="Back to all articles">← Back to all articles</a>
-                <div style="margin-bottom: 24px; padding: 16px 20px; background: var(--primary-light); border-radius: 12px; font-size: 14px; color: var(--text-secondary);">
-                    💡 <strong>You may also like:</strong>
-                    <a href="abdominal-ultrasound.html" style="color: var(--primary); font-weight: 600; margin-left: 6px;">Abdominal Ultrasound: What It Is and What to Expect →</a>
+    <main id="main-content">
+        <article class="article article-page container container-narrow">
+            <header class="article-header">
+                <a href="../index.html#blog" class="back-link" aria-label="Back to blog">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to all articles
+                </a>
+
+                <div class="related-callout">
+                    <span aria-hidden="true">💡</span>
+                    <span><strong>You may also like:</strong> <a href="abdominal-ultrasound.html">Abdominal Ultrasound: What It Is and What to Expect →</a></span>
                 </div>
 
                 <span class="article-tag">Clinical Guide</span>
@@ -562,408 +94,313 @@
                 <p class="article-meta">
                     By <strong>Fatima Rai</strong> · BMIS, University of Lahore · Published June 20, 2026
                 </p>
+            </header>
 
-                <p>
-                    Liver ultrasound (US) is one of the most widely performed and valuable
-                    imaging modalities in clinical medicine. It serves as the first-line
-                    imaging technique for evaluating hepatic pathology due to its non-invasive
-                    nature, absence of ionizing radiation, real-time capability, and widespread
-                    availability.
-                </p>
-                <p>
-                    This article provides a thorough overview of liver ultrasound — covering
-                    its clinical indications, examination technique, normal sonographic anatomy,
-                    common pathological findings, and its role in the broader context of
-                    hepatobiliary imaging.
-                </p>
+            <p>Liver ultrasound (US) is one of the most widely performed and valuable imaging modalities in clinical medicine. It serves as the first-line imaging technique for evaluating hepatic pathology due to its non-invasive nature, absence of ionizing radiation, real-time capability, and widespread availability.</p>
+            <p>This article provides a thorough overview of liver ultrasound — covering its clinical indications, examination technique, normal sonographic anatomy, common pathological findings, and its role in the broader context of hepatobiliary imaging.</p>
 
-                <h2>What Is an Abdominal Ultrasound?</h2>
-                <p>
-                    Liver ultrasound uses high-frequency sound waves to create real-time images
-                    of the liver. A transducer placed on the skin sends sound waves into the body,
-                    and the echoes that bounce back form a picture on the monitor.
-                </p>
-                <p>
-                    It's non-invasive, radiation-free, painless, and provides immediate information
-                    that guides clinical decision-making across gastroenterology, hepatology,
-                    surgery, and primary care.
-                </p>
+            <h2>What Is an Abdominal Ultrasound?</h2>
+            <p>Liver ultrasound uses high-frequency sound waves to create real-time images of the liver. A transducer placed on the skin sends sound waves into the body, and the echoes that bounce back form a picture on the monitor.</p>
+            <p>It's non-invasive, radiation-free, painless, and provides immediate information that guides clinical decision-making across gastroenterology, hepatology, surgery, and primary care.</p>
 
-                <h2>Clinical Indications</h2>
-                <p>Liver ultrasound is requested in a broad range of clinical scenarios:</p>
-                <div class="grid grid-2">
-                    <div class="grid-card">
-                        <div class="grid-card-num">1</div>
-                        <div class="grid-card-title">Elevated Liver Enzymes</div>
-                        <div class="grid-card-desc">Abnormal LFTs (ALT, AST, ALP, GGT, bilirubin) — ultrasound identifies structural causes such as biliary obstruction, hepatic steatosis, or mass lesions.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">2</div>
-                        <div class="grid-card-title">Suspected or Known Liver Disease</div>
-                        <div class="grid-card-desc">Hepatitis, cirrhosis (nodular contour, portal hypertension signs), and fatty liver disease (NAFLD/NASH) assessment.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">3</div>
-                        <div class="grid-card-title">Focal Liver Lesions</div>
-                        <div class="grid-card-desc">Primary tool for detecting and characterizing cysts, hemangiomas, HCC, metastatic disease, and abscesses.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">4</div>
-                        <div class="grid-card-title">Biliary Pathology</div>
-                        <div class="grid-card-desc">Gallstones, cholecystitis, bile duct dilation, and choledocholithiasis.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">5</div>
-                        <div class="grid-card-title">Trauma (FAST Protocol)</div>
-                        <div class="grid-card-desc">Focused Assessment with Sonography in Trauma — rapid evaluation of the liver for hemoperitoneum.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">6</div>
-                        <div class="grid-card-title">Intervention Guidance</div>
-                        <div class="grid-card-desc">Real-time guidance for percutaneous liver biopsy, abscess drainage, cyst aspiration, and tumor ablation.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">7</div>
-                        <div class="grid-card-title">HCC Screening</div>
-                        <div class="grid-card-desc">High-risk populations (hepatitis B/C, cirrhosis) — surveillance ultrasound every 6 months.</div>
+            <h2>Clinical Indications</h2>
+            <p>Liver ultrasound is requested in a broad range of clinical scenarios:</p>
+            <div class="grid grid-2">
+                <div class="grid-card">
+                    <div class="grid-card-num">1</div>
+                    <div class="grid-card-title">Elevated Liver Enzymes</div>
+                    <div class="grid-card-desc">Abnormal LFTs (ALT, AST, ALP, GGT, bilirubin) — ultrasound identifies structural causes such as biliary obstruction, hepatic steatosis, or mass lesions.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">2</div>
+                    <div class="grid-card-title">Suspected or Known Liver Disease</div>
+                    <div class="grid-card-desc">Hepatitis, cirrhosis (nodular contour, portal hypertension signs), and fatty liver disease (NAFLD/NASH) assessment.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">3</div>
+                    <div class="grid-card-title">Focal Liver Lesions</div>
+                    <div class="grid-card-desc">Primary tool for detecting and characterizing cysts, hemangiomas, HCC, metastatic disease, and abscesses.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">4</div>
+                    <div class="grid-card-title">Biliary Pathology</div>
+                    <div class="grid-card-desc">Gallstones, cholecystitis, bile duct dilation, and choledocholithiasis.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">5</div>
+                    <div class="grid-card-title">Trauma (FAST Protocol)</div>
+                    <div class="grid-card-desc">Focused Assessment with Sonography in Trauma — rapid evaluation of the liver for hemoperitoneum.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">6</div>
+                    <div class="grid-card-title">Intervention Guidance</div>
+                    <div class="grid-card-desc">Real-time guidance for percutaneous liver biopsy, abscess drainage, cyst aspiration, and tumor ablation.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">7</div>
+                    <div class="grid-card-title">HCC Screening</div>
+                    <div class="grid-card-desc">High-risk populations (hepatitis B/C, cirrhosis) — surveillance ultrasound every 6 months.</div>
+                </div>
+            </div>
+            <p>It's also commonly used during pregnancy to monitor the baby, though that's usually called an obstetric ultrasound.</p>
+
+            <h2>Patient Preparation</h2>
+            <p>Proper preparation improves image quality and diagnostic accuracy:</p>
+            <table class="clinical-table">
+                <thead>
+                    <tr><th>Factor</th><th>Recommendation</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Fasting</strong></td><td>6–8 hours prior to reduce bowel gas and allow gallbladder filling</td></tr>
+                    <tr><td><strong>Hydration</strong></td><td>Adequate water intake unless contraindicated</td></tr>
+                    <tr><td><strong>Clothing</strong></td><td>Loose-fitting upper abdominal garment</td></tr>
+                    <tr><td><strong>Communication</strong></td><td>Explain breath-holding instructions for optimal intercostal windows</td></tr>
+                </tbody>
+            </table>
+
+            <div class="clinical-note">
+                <strong>Clinical tip:</strong> Fasting is the single most important factor in obtaining diagnostic-quality liver images. A non-fasting patient can result in a non-diagnostic study and the need to reschedule.
+            </div>
+
+            <h2>Examination Technique</h2>
+            <p>A curvilinear transducer (typically 2–5 MHz for adult abdominal imaging) is standard. Higher-frequency linear probes (5–12 MHz) may be used for superficial structures or intercostal scanning.</p>
+
+            <h3>Patient Positioning</h3>
+            <div class="grid grid-3">
+                <div class="grid-card">
+                    <div class="grid-card-title">Supine</div>
+                    <div class="grid-card-desc">Primary position; subcostal and intercostal scanning</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Left Lateral Decubitus</div>
+                    <div class="grid-card-desc">Displaces the liver superiorly; improves visualization of the right lobe through the flank</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Right Lateral / Upright</div>
+                    <div class="grid-card-desc">Aids in evaluating the gallbladder and liver edges</div>
+                </div>
+            </div>
+
+            <h3>Scanning Protocol</h3>
+            <p>A systematic approach ensures complete evaluation:</p>
+            <ol class="numbered-list">
+                <li><strong>Subcostal sweep</strong> — fan-shaped sweeps from the left lobe to the right lobe via the subcostal window, documenting hepatic parenchyma, vasculature, and the porta hepatis.</li>
+                <li><strong>Intercostal scanning</strong> — sagittal and transverse sweeps through the right liver via intercostal windows; useful for the dome of the liver, right hepatic vein, and portal triads.</li>
+                <li><strong>Coronal views</strong> — flank approach to assess the right kidney–liver interface and the inferior liver edge.</li>
+                <li><strong>Doppler assessment</strong> — evaluation of hepatic vasculature (portal vein, hepatic veins, hepatic artery).</li>
+            </ol>
+
+            <h2>Normal Sonographic Anatomy</h2>
+
+            <h3>Hepatic Parenchyma</h3>
+            <p>Normal liver parenchyma appears as a homogeneous, medium-level echogenicity. It is generally slightly more echogenic (brighter) than the renal cortex and iso- or mildly hyperechoic compared to the spleen. Echotexture should be uniform without focal disruptions.</p>
+
+            <h3>Liver Lobes and Surfaces</h3>
+            <table class="clinical-table">
+                <thead>
+                    <tr><th>Feature</th><th>Sonographic Finding</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Surface</strong></td><td>Smooth in normal liver; finely nodular in early cirrhosis</td></tr>
+                    <tr><td><strong>Left lobe</strong></td><td>Extends across the midline; thinner than the right lobe</td></tr>
+                    <tr><td><strong>Right lobe</strong></td><td>Largest lobe; evaluated via subcostal and intercostal views</td></tr>
+                    <tr><td><strong>Caudate lobe</strong></td><td>Located posteriorly; may appear hypertrophied in cirrhosis</td></tr>
+                    <tr><td><strong>Falciform ligament</strong></td><td>Hyperechoic linear structure on the anterior surface</td></tr>
+                    <tr><td><strong>Bare area</strong></td><td>Posterior surface lacking peritoneal covering</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Vascular Structures</h3>
+            <div class="grid grid-3">
+                <div class="grid-card">
+                    <div class="grid-card-title">Portal Vein</div>
+                    <div class="grid-card-desc">Diameter ≤13 mm · Echogenic wall · Hepatopetal flow (toward the liver) on color Doppler</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Hepatic Veins</div>
+                    <div class="grid-card-desc">Three main veins (right, middle, left) converge at the IVC · Triphasic flow normally</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Hepatic Artery</div>
+                    <div class="grid-card-desc">Smaller caliber, higher-resistance flow than portal vein · Located near the portal vein in the porta hepatis</div>
+                </div>
+            </div>
+
+            <h2>Common Pathological Findings</h2>
+
+            <h3>Hepatic Steatosis (Fatty Liver)</h3>
+            <p><strong>Sonographic features:</strong> increased hepatic echogenicity (bright liver), loss of definition of the diaphragm, increased sound attenuation, hepatomegaly, and relative sparing of the caudate lobe and periportal area.</p>
+            <table class="clinical-table">
+                <thead>
+                    <tr><th>Grade</th><th>Echogenicity</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Mild</strong></td><td>Slight increase; portal vein walls still visible</td></tr>
+                    <tr><td><strong>Moderate</strong></td><td>Marked increase; diaphragm and portal vein walls poorly seen</td></tr>
+                    <tr><td><strong>Severe</strong></td><td>Very bright; near-field gain may appear dark</td></tr>
+                </tbody>
+            </table>
+            <div class="clinical-note">
+                <strong>Clinical significance:</strong> Steatosis is associated with metabolic syndrome, alcohol use, hepatitis C, and certain medications. Severe steatosis can mimic other pathology and may progress to steatohepatitis and cirrhosis.
+            </div>
+
+            <h3>Cirrhosis</h3>
+            <p><strong>Sonographic features:</strong> surface nodularity, parenchymal heterogeneity, caudate lobe hypertrophy, blunted liver edges, and signs of portal hypertension (splenomegaly, ascites, portal vein dilation &gt;13 mm, reduced or reversed hepatofugal portal flow, collateral vessels, regenerating nodules).</p>
+            <div class="clinical-note">
+                <strong>Clinical significance:</strong> Cirrhosis predisposes to HCC and portal hypertension complications. Surveillance ultrasound is critical in known cirrhosis patients.
+            </div>
+
+            <h3>Hepatocellular Carcinoma (HCC)</h3>
+            <p><strong>Sonographic features:</strong> solitary mass or multifocal lesions, variable echogenicity, halo sign (thin hypoechoic rim), mosaic pattern, arterial hypervascularity on color Doppler, washout in the portal venous or delayed phase, infiltrative pattern, and satellite nodules.</p>
+            <div class="clinical-note">
+                <strong>Diagnostic approach:</strong> In cirrhotic patients, HCC can be diagnosed non-invasively with contrast imaging (CEUS, CT, or MRI) showing arterial enhancement and washout. In non-cirrhotic patients, biopsy may be required.
+            </div>
+
+            <h3>Hepatic Cysts &amp; Masses</h3>
+            <div class="grid grid-2">
+                <div class="grid-card">
+                    <div class="grid-card-title">Simple Cysts</div>
+                    <div class="grid-card-desc">Anechoic, round or oval · Smooth thin walls · Posterior acoustic enhancement · No internal flow on Doppler</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Hemangioma</div>
+                    <div class="grid-card-desc">Most common benign liver tumor · Homogeneously hyperechoic, well-defined · Avascular on Doppler</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Liver Abscess</div>
+                    <div class="grid-card-desc">Pyogenic: irregular hypoechoic with debris · Amebic: solitary, round with posterior enhancement · Often with fever and RUQ pain</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Metastatic Disease</div>
+                    <div class="grid-card-desc">Variable appearance — hypoechoic, hyperechoic, or target lesions · Multiple lesions more common</div>
+                </div>
+            </div>
+
+            <h3>Portal Vein Thrombosis</h3>
+            <p><strong>Sonographic features:</strong> echogenic material within the portal vein lumen, absent flow on color Doppler, cavernous transformation in chronic cases. Acute thrombus may be isoechoic to anechoic, making Doppler essential. Tumor thrombus shows internal arterial flow and differentiates from bland thrombus on contrast-enhanced imaging.</p>
+
+            <h2>Doppler Assessment</h2>
+            <p>Doppler evaluation provides critical hemodynamic information:</p>
+            <div class="grid grid-3">
+                <div class="grid-card">
+                    <div class="grid-card-title">Portal Vein</div>
+                    <div class="grid-card-desc"><strong>Normal:</strong> hepatopetal flow, 15–25 cm/s, ≤13 mm · <strong>HTN:</strong> reduced/reversed flow, dilated · <strong>Thrombosis:</strong> absent flow, echogenic material</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Hepatic Veins</div>
+                    <div class="grid-card-desc"><strong>Normal:</strong> triphasic waveform · <strong>Restrictive:</strong> loss of phasicity in constrictive pericarditis or right heart failure</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Hepatic Artery</div>
+                    <div class="grid-card-desc">Elevated resistive index (&gt;0.7–0.8) may indicate downstream obstruction · Low-resistance flow is normal</div>
+                </div>
+            </div>
+
+            <h2>Contrast-Enhanced Ultrasound (CEUS)</h2>
+            <p>CEUS uses microbubble contrast agents to enhance vascular imaging. It is particularly valuable for characterizing indeterminate lesions, differentiating benign from malignant lesions, assessing tumor vascularity, and evaluating treatment response (e.g., post-RFA).</p>
+            <table class="clinical-table">
+                <thead>
+                    <tr><th>Lesion</th><th>Enhancement Pattern</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Hemangioma</strong></td><td>Peripheral nodular enhancement with progressive centripetal fill-in</td></tr>
+                    <tr><td><strong>HCC</strong></td><td>Arterial phase hyperenhancement with portal venous/late phase washout</td></tr>
+                    <tr><td><strong>Metastases</strong></td><td>Typically arterial ring enhancement with early washout</td></tr>
+                    <tr><td><strong>FNH</strong></td><td>Arterial hyperenhancement with centrifugal filling and late phase isoenhancement</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Advantages and Limitations</h2>
+            <div class="grid grid-2">
+                <div class="grid-card">
+                    <div class="grid-card-title">✓ Advantages</div>
+                    <div class="grid-card-desc">
+                        <ul>
+                            <li>Non-invasive, safe, no radiation</li>
+                            <li>Real-time imaging</li>
+                            <li>Portable, widely available</li>
+                            <li>Cost-effective</li>
+                            <li>Excellent for guiding procedures</li>
+                            <li>Doppler vascular assessment without contrast</li>
+                        </ul>
                     </div>
                 </div>
-                <p>
-                    It's also commonly used during pregnancy to monitor the baby, though
-                    that's usually called an obstetric ultrasound.
-                </p>
-
-                <h2>Patient Preparation</h2>
-                <p>Proper preparation improves image quality and diagnostic accuracy:</p>
-                <table class="clinical-table">
-                    <thead>
-                        <tr>
-                            <th>Factor</th>
-                            <th>Recommendation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Fasting</strong></td>
-                            <td>6–8 hours prior to reduce bowel gas and allow gallbladder filling</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hydration</strong></td>
-                            <td>Adequate water intake unless contraindicated</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Clothing</strong></td>
-                            <td>Loose-fitting upper abdominal garment</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Communication</strong></td>
-                            <td>Explain breath-holding instructions for optimal intercostal windows</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="clinical-note">
-                    <strong>Clinical tip:</strong> Fasting is the single most important factor in
-                    obtaining diagnostic-quality liver images. A non-fasting patient can result
-                    in a non-diagnostic study and the need to reschedule.
-                </div>
-
-                <h2>Examination Technique</h2>
-                <p>A curvilinear transducer (typically 2–5 MHz for adult abdominal imaging) is standard. Higher-frequency linear probes (5–12 MHz) may be used for superficial structures or intercostal scanning.</p>
-
-                <h3>Patient Positioning</h3>
-                <div class="grid grid-3">
-                    <div class="grid-card">
-                        <div class="grid-card-title">Supine</div>
-                        <div class="grid-card-desc">Primary position; subcostal and intercostal scanning</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Left Lateral Decubitus</div>
-                        <div class="grid-card-desc">Displaces the liver superiorly; improves visualization of the right lobe through the flank</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Right Lateral / Upright</div>
-                        <div class="grid-card-desc">Aids in evaluating the gallbladder and liver edges</div>
+                <div class="grid-card">
+                    <div class="grid-card-title">✗ Limitations</div>
+                    <div class="grid-card-desc">
+                        <ul>
+                            <li>Operator-dependent</li>
+                            <li>Limited tissue characterization</li>
+                            <li>Body habitus and bowel gas may degrade quality</li>
+                            <li>Smaller field of view than CT/MRI</li>
+                            <li>Not ideal for surgical planning</li>
+                            <li>Less sensitive for lesions &lt;1 cm</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
-                <h3>Scanning Protocol</h3>
-                <p>A systematic approach ensures complete evaluation:</p>
-                <ol class="numbered-list">
-                    <li><strong>Subcostal sweep</strong> — fan-shaped sweeps from the left lobe to the right lobe via the subcostal window, documenting hepatic parenchyma, vasculature, and the porta hepatis.</li>
-                    <li><strong>Intercostal scanning</strong> — sagittal and transverse sweeps through the right liver via intercostal windows; useful for the dome of the liver, right hepatic vein, and portal triads.</li>
-                    <li><strong>Coronal views</strong> — flank approach to assess the right kidney–liver interface and the inferior liver edge.</li>
-                    <li><strong>Doppler assessment</strong> — evaluation of hepatic vasculature (portal vein, hepatic veins, hepatic artery).</li>
-                </ol>
+            <h2>Role in Clinical Algorithms</h2>
+            <table class="clinical-table">
+                <thead>
+                    <tr><th>Scenario</th><th>Role of Ultrasound</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Elevated LFTs (unknown cause)</strong></td><td>First-line structural assessment</td></tr>
+                    <tr><td><strong>Fatty liver screening</strong></td><td>Primary screening and quantification</td></tr>
+                    <tr><td><strong>Cirrhosis surveillance</strong></td><td>HCC detection every 6 months; portal hypertension assessment</td></tr>
+                    <tr><td><strong>Known focal lesion</strong></td><td>Characterization; CEUS for indeterminate lesions</td></tr>
+                    <tr><td><strong>Biliary obstruction</strong></td><td>First-line to detect dilation; etiology requires MRCP/CT</td></tr>
+                    <tr><td><strong>Pre-operative assessment</strong></td><td>Evaluate liver size, focal lesions, vascular anatomy</td></tr>
+                    <tr><td><strong>Treatment planning</strong></td><td>Combined with CT/MRI for precise mapping</td></tr>
+                </tbody>
+            </table>
 
-                <h2>Normal Sonographic Anatomy</h2>
+            <div class="key-takeaways">
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li>Liver ultrasound is the first-line imaging modality for hepatic pathology</li>
+                    <li>Non-invasive, radiation-free, and real-time</li>
+                    <li>6–8 hour fasting is essential for diagnostic image quality</li>
+                    <li>Systematic subcostal + intercostal + Doppler protocol</li>
+                    <li>Versatile — detects steatosis, cirrhosis, HCC, cysts, hemangiomas, metastases</li>
+                    <li>CEUS extends diagnostic power for indeterminate lesions</li>
+                    <li>Surveillance every 6 months in cirrhotic patients is critical</li>
+                </ul>
+            </div>
 
-                <h3>Hepatic Parenchyma</h3>
-                <p>Normal liver parenchyma appears as a homogeneous, medium-level echogenicity. It is generally slightly more echogenic (brighter) than the renal cortex and iso- or mildly hyperechoic compared to the spleen. Echotexture should be uniform without focal disruptions.</p>
+            <div class="article-cta">
+                <p>Have questions about liver ultrasound or want to discuss a case? Feel free to reach out.</p>
+                <a href="mailto:fr166255@gmail.com">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Get in touch
+                </a>
+            </div>
 
-                <h3>Liver Lobes and Surfaces</h3>
-                <table class="clinical-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Sonographic Finding</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Surface</strong></td>
-                            <td>Smooth in normal liver; finely nodular in early cirrhosis</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Left lobe</strong></td>
-                            <td>Extends across the midline; thinner than the right lobe</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Right lobe</strong></td>
-                            <td>Largest lobe; evaluated via subcostal and intercostal views</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Caudate lobe</strong></td>
-                            <td>Located posteriorly; may appear hypertrophied in cirrhosis</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Falciform ligament</strong></td>
-                            <td>Hyperechoic linear structure on the anterior surface</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bare area</strong></td>
-                            <td>Posterior surface lacking peritoneal covering</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <p class="article-disclaimer"><em>This article is intended for educational purposes and should not replace clinical judgment or specialist consultation.</em></p>
+        </article>
+    </main>
 
-                <h3>Vascular Structures</h3>
-                <div class="grid grid-3">
-                    <div class="grid-card">
-                        <div class="grid-card-title">Portal Vein</div>
-                        <div class="grid-card-desc">Diameter ≤13 mm · Echogenic wall · Hepatopetal flow (toward the liver) on color Doppler</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Hepatic Veins</div>
-                        <div class="grid-card-desc">Three main veins (right, middle, left) converge at the IVC · Triphasic flow normally</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Hepatic Artery</div>
-                        <div class="grid-card-desc">Smaller caliber, higher-resistance flow than portal vein · Located near the portal vein in the porta hepatis</div>
-                    </div>
-                </div>
-
-                <h2>Common Pathological Findings</h2>
-
-                <h3>Hepatic Steatosis (Fatty Liver)</h3>
-                <p><strong>Sonographic features:</strong> increased hepatic echogenicity (bright liver), loss of definition of the diaphragm, increased sound attenuation, hepatomegaly, and relative sparing of the caudate lobe and periportal area.</p>
-                <table class="clinical-table">
-                    <thead>
-                        <tr>
-                            <th>Grade</th>
-                            <th>Echogenicity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Mild</strong></td><td>Slight increase; portal vein walls still visible</td></tr>
-                        <tr><td><strong>Moderate</strong></td><td>Marked increase; diaphragm and portal vein walls poorly seen</td></tr>
-                        <tr><td><strong>Severe</strong></td><td>Very bright; near-field gain may appear dark</td></tr>
-                    </tbody>
-                </table>
-                <div class="clinical-note">
-                    <strong>Clinical significance:</strong> Steatosis is associated with metabolic syndrome,
-                    alcohol use, hepatitis C, and certain medications. Severe steatosis can mimic
-                    other pathology and may progress to steatohepatitis and cirrhosis.
-                </div>
-
-                <h3>Cirrhosis</h3>
-                <p><strong>Sonographic features:</strong> surface nodularity, parenchymal heterogeneity, caudate lobe hypertrophy, blunted liver edges, and signs of portal hypertension (splenomegaly, ascites, portal vein dilation &gt;13 mm, reduced or reversed hepatofugal portal flow, collateral vessels, regenerating nodules).</p>
-                <div class="clinical-note">
-                    <strong>Clinical significance:</strong> Cirrhosis predisposes to HCC and portal
-                    hypertension complications. Surveillance ultrasound is critical in known
-                    cirrhosis patients.
-                </div>
-
-                <h3>Hepatocellular Carcinoma (HCC)</h3>
-                <p><strong>Sonographic features:</strong> solitary mass or multifocal lesions, variable echogenicity, halo sign (thin hypoechoic rim), mosaic pattern, arterial hypervascularity on color Doppler, washout in the portal venous or delayed phase, infiltrative pattern, and satellite nodules.</p>
-                <div class="clinical-note">
-                    <strong>Diagnostic approach:</strong> In cirrhotic patients, HCC can be diagnosed
-                    non-invasively with contrast imaging (CEUS, CT, or MRI) showing arterial
-                    enhancement and washout. In non-cirrhotic patients, biopsy may be required.
-                </div>
-
-                <h3>Hepatic Cysts &amp; Masses</h3>
-                <div class="grid grid-2">
-                    <div class="grid-card">
-                        <div class="grid-card-title">Simple Cysts</div>
-                        <div class="grid-card-desc">Anechoic, round or oval · Smooth thin walls · Posterior acoustic enhancement · No internal flow on Doppler</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Hemangioma</div>
-                        <div class="grid-card-desc">Most common benign liver tumor · Homogeneously hyperechoic, well-defined · Avascular on Doppler</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Liver Abscess</div>
-                        <div class="grid-card-desc">Pyogenic: irregular hypoechoic with debris · Amebic: solitary, round with posterior enhancement · Often with fever and RUQ pain</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Metastatic Disease</div>
-                        <div class="grid-card-desc">Variable appearance — hypoechoic, hyperechoic, or target lesions · Multiple lesions more common</div>
-                    </div>
-                </div>
-
-                <h3>Portal Vein Thrombosis</h3>
-                <p><strong>Sonographic features:</strong> echogenic material within the portal vein lumen, absent flow on color Doppler, cavernous transformation in chronic cases. Acute thrombus may be isoechoic to anechoic, making Doppler essential. Tumor thrombus shows internal arterial flow and differentiates from bland thrombus on contrast-enhanced imaging.</p>
-
-                <h2>Doppler Assessment</h2>
-                <p>Doppler evaluation provides critical hemodynamic information:</p>
-                <div class="grid grid-3">
-                    <div class="grid-card">
-                        <div class="grid-card-title">Portal Vein</div>
-                        <div class="grid-card-desc"><strong>Normal:</strong> hepatopetal flow, 15–25 cm/s, ≤13 mm · <strong>HTN:</strong> reduced/reversed flow, dilated · <strong>Thrombosis:</strong> absent flow, echogenic material</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Hepatic Veins</div>
-                        <div class="grid-card-desc"><strong>Normal:</strong> triphasic waveform · <strong>Restrictive:</strong> loss of phasicity in constrictive pericarditis or right heart failure</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Hepatic Artery</div>
-                        <div class="grid-card-desc">Elevated resistive index (&gt;0.7–0.8) may indicate downstream obstruction · Low-resistance flow is normal</div>
-                    </div>
-                </div>
-
-                <h2>Contrast-Enhanced Ultrasound (CEUS)</h2>
-                <p>CEUS uses microbubble contrast agents to enhance vascular imaging. It is particularly valuable for characterizing indeterminate lesions, differentiating benign from malignant lesions, assessing tumor vascularity, and evaluating treatment response (e.g., post-RFA).</p>
-                <table class="clinical-table">
-                    <thead>
-                        <tr>
-                            <th>Lesion</th>
-                            <th>Enhancement Pattern</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Hemangioma</strong></td><td>Peripheral nodular enhancement with progressive centripetal fill-in</td></tr>
-                        <tr><td><strong>HCC</strong></td><td>Arterial phase hyperenhancement with portal venous/late phase washout</td></tr>
-                        <tr><td><strong>Metastases</strong></td><td>Typically arterial ring enhancement with early washout</td></tr>
-                        <tr><td><strong>FNH</strong></td><td>Arterial hyperenhancement with centrifugal filling and late phase isoenhancement</td></tr>
-                    </tbody>
-                </table>
-
-                <h2>Advantages and Limitations</h2>
-                <div class="grid grid-2">
-                    <div class="grid-card">
-                        <div class="grid-card-title">✓ Advantages</div>
-                        <div class="grid-card-desc">
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li>Non-invasive, safe, no radiation</li>
-                                <li>Real-time imaging</li>
-                                <li>Portable, widely available</li>
-                                <li>Cost-effective</li>
-                                <li>Excellent for guiding procedures</li>
-                                <li>Doppler vascular assessment without contrast</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">✗ Limitations</div>
-                        <div class="grid-card-desc">
-                            <ul style="margin: 0; padding-left: 20px;">
-                                <li>Operator-dependent</li>
-                                <li>Limited tissue characterization</li>
-                                <li>Body habitus and bowel gas may degrade quality</li>
-                                <li>Smaller field of view than CT/MRI</li>
-                                <li>Not ideal for surgical planning</li>
-                                <li>Less sensitive for lesions &lt;1 cm</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h2>Role in Clinical Algorithms</h2>
-                <table class="clinical-table">
-                    <thead>
-                        <tr>
-                            <th>Scenario</th>
-                            <th>Role of Ultrasound</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Elevated LFTs (unknown cause)</strong></td><td>First-line structural assessment</td></tr>
-                        <tr><td><strong>Fatty liver screening</strong></td><td>Primary screening and quantification</td></tr>
-                        <tr><td><strong>Cirrhosis surveillance</strong></td><td>HCC detection every 6 months; portal hypertension assessment</td></tr>
-                        <tr><td><strong>Known focal lesion</strong></td><td>Characterization; CEUS for indeterminate lesions</td></tr>
-                        <tr><td><strong>Biliary obstruction</strong></td><td>First-line to detect dilation; etiology requires MRCP/CT</td></tr>
-                        <tr><td><strong>Pre-operative assessment</strong></td><td>Evaluate liver size, focal lesions, vascular anatomy</td></tr>
-                        <tr><td><strong>Treatment planning</strong></td><td>Combined with CT/MRI for precise mapping</td></tr>
-                    </tbody>
-                </table>
-
-                <div class="key-takeaways">
-                    <h2>Key Takeaways</h2>
-                    <ul>
-                        <li>Liver ultrasound is the first-line imaging modality for hepatic pathology</li>
-                        <li>Non-invasive, radiation-free, and real-time</li>
-                        <li>6–8 hour fasting is essential for diagnostic image quality</li>
-                        <li>Systematic subcostal + intercostal + Doppler protocol</li>
-                        <li>Versatile — detects steatosis, cirrhosis, HCC, cysts, hemangiomas, metastases</li>
-                        <li>CEUS extends diagnostic power for indeterminate lesions</li>
-                        <li>Surveillance every 6 months in cirrhotic patients is critical</li>
-                    </ul>
-                </div>
-
-                <div class="article-cta">
-                    <p>Have questions about liver ultrasound or want to discuss a case? Feel free to reach out.</p>
-                    <a href="mailto:fr166255@gmail.com">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <path d="M22 6l-10 7L2 6"/>
-                        </svg>
-                        Get in touch
-                    </a>
-                </div>
-
-                <p style="font-size: 14px; font-style: italic; color: var(--text-muted); margin-top: 32px; text-align: center;">
-                    <em>This article is intended for educational purposes and should not replace clinical judgment or specialist consultation.</em>
-                </p>
-            </article>
-        </main>
-
-        <footer>
+    <footer class="footer">
+        <div class="container footer-inner">
             <span>&copy; 2025 Fatima Rai. All rights reserved.</span>
-            <a href="../index.html">fatimarai.com</a>
-        </footer>
-    </div>
+            <ul class="footer-links">
+                <li><a href="../index.html#case-study">Case Study</a></li>
+                <li><a href="../index.html#expertise">Expertise</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const root = document.documentElement;
-
-        function getPreferredTheme() {
-            const saved = localStorage.getItem('theme');
-            if (saved) return saved;
-            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
-
-        function setTheme(theme) {
-            if (theme === 'light') {
-                root.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '🌙';
-                themeToggle.setAttribute('aria-label', 'Switch to dark theme');
-            } else {
-                root.removeAttribute('data-theme');
-                themeIcon.textContent = '☀';
-                themeToggle.setAttribute('aria-label', 'Switch to light theme');
-            }
-            localStorage.setItem('theme', theme);
-        }
-
-        setTheme(getPreferredTheme());
-
-        themeToggle.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-            setTheme(current === 'light' ? 'dark' : 'light');
-        });
-    </script>
+    <noscript>
+        <style>
+            .preloader { display: none; }
+            .navbar { transform: translate(-50%, 0); }
+        </style>
+    </noscript>
+    <script src="../assets/scripts.js"></script>
 </body>
 </html>

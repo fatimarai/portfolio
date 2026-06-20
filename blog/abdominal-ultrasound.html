@@ -4,716 +4,301 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn what an abdominal ultrasound is, how to prepare, what happens during the scan, and what it can detect. A patient guide by Fatima Rai, BMIS radiographer.">
-    <meta name="theme-color" content="#0a0f0d">
+    <meta name="theme-color" content="#0c0a09">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
     <title>Abdominal Ultrasound: What It Is and What to Expect — Fatima Rai</title>
     <link rel="canonical" href="https://fatimarai.com/blog/abdominal-ultrasound.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e08b5c'/%3E%3Ctext x='50' y='68' font-family='serif' font-size='55' fill='%230c0a09' text-anchor='middle' font-weight='600'%3EF%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ==================== ACCESSIBILITY (WCAG 2.1 AA) ==================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #0a0f0d;
-            --bg-secondary: #111613;
-            --bg-card: #1a211e;
-            --text: #f0f4f2;
-            --text-secondary: #c5cfc9;
-            --text-muted: #8a948e;
-            --primary: #2dd4bf;
-            --primary-text: #0a0f0d;
-            --primary-light: #0d2a27;
-            --accent: #fcd34d;
-            --accent-light: #2a2412;
-            --border: #3a4540;
-            --focus: #2dd4bf;
-            --shadow: rgba(0, 0, 0, 0.4);
-        }
-
-        [data-theme="light"] {
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f0;
-            --bg-card: #fafaf7;
-            --text: #0a0f0d;
-            --text-secondary: #3d4a44;
-            --text-muted: #5c6660;
-            --primary: #0d8a7c;
-            --primary-text: #ffffff;
-            --primary-light: #e0f5f1;
-            --accent: #b45309;
-            --accent-light: #fef3c7;
-            --border: #d4d4ce;
-            --focus: #0d8a7c;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root:not([data-theme]) {
-                --bg: #ffffff;
-                --bg-secondary: #f5f5f0;
-                --bg-card: #fafaf7;
-                --text: #0a0f0d;
-                --text-secondary: #3d4a44;
-                --text-muted: #5c6660;
-                --primary: #0d8a7c;
-                --primary-text: #ffffff;
-                --primary-light: #e0f5f1;
-                --accent: #b45309;
-                --accent-light: #fef3c7;
-                --border: #d4d4ce;
-                --focus: #0d8a7c;
-                --shadow: rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 16px;
-            background: var(--primary);
-            color: var(--primary-text);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            z-index: 9999;
-            transition: top 0.2s;
-        }
-
-        .skip-link:focus { top: 16px; outline: 3px solid var(--accent); outline-offset: 2px; }
-
-        :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
-
-        /* Navigation */
-        nav {
-            padding: 28px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 24px;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .logo span { color: var(--accent); }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-        }
-
-        .nav-right ul {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 8px 4px;
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-secondary);
-            border-color: var(--primary);
-        }
-
-        /* Article */
-        .article {
-            padding: 60px 0 100px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 32px;
-            font-weight: 500;
-        }
-
-        .back-link:hover { color: var(--primary); }
-
-        .article-tag {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-        }
-
-        .article h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 48px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .article-meta strong { color: var(--text-secondary); }
-
-        .article h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 600;
-            margin-top: 48px;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-            color: var(--text);
-        }
-
-        .article p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .article ul, .article ol {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            padding-left: 24px;
-        }
-
-        .article ul li, .article ol li {
-            margin-bottom: 8px;
-            line-height: 1.8;
-        }
-
-        .article ol { padding-left: 28px; }
-
-        .article strong { color: var(--text); }
-
-        .key-takeaways {
-            background: var(--primary-light);
-            border-left: 4px solid var(--primary);
-            padding: 28px 32px;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-
-        .key-takeaways h2 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 22px;
-        }
-
-        .key-takeaways ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 0;
-        }
-
-        .key-takeaways ul li {
-            position: relative;
-            padding-left: 28px;
-        }
-
-        .key-takeaways ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .article-cta {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            margin-top: 56px;
-            text-align: center;
-        }
-
-        .article-cta p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .article-cta a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: var(--primary-text);
-            padding: 14px 28px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .article-cta a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--shadow);
-        }
-
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 80px;
-        }
-
-        footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        footer a:hover { color: var(--primary); }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* ==================== GRID CARDS ==================== */
-        .grid {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .grid-2 { grid-template-columns: repeat(2, 1fr); }
-        .grid-3 { grid-template-columns: repeat(3, 1fr); }
-        .grid-4 { grid-template-columns: repeat(4, 1fr); }
-
-        .grid-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .grid-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .grid-card-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-light);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        .grid-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text);
-        }
-
-        .grid-card-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .grid-card-num {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--primary-text);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 28px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .grid-card-title strong { color: var(--primary); }
-
-        @media (max-width: 900px) {
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 560px) {
-            .grid-2,
-            .grid-3,
-            .grid-4 { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 640px) {
-            .container { padding: 0 20px; }
-            .article h1 { font-size: 32px; }
-            .article h2 { font-size: 22px; }
-            .nav-right ul { gap: 16px !important; }
-            .nav-right { gap: 16px !important; }
-            nav a { font-size: 12px; }
-            .article { padding: 40px 0 60px; }
-            footer { flex-direction: column; gap: 12px; text-align: center; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="../assets/blog.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="container">
-        <nav aria-label="Primary navigation">
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-text">
+            <span>Fatima</span><span>Rai</span>
+        </div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <header class="navbar" role="banner">
+        <div class="navbar-inner">
             <a href="../index.html" class="logo" aria-label="Fatima Rai - Home">Fatima<span aria-hidden="true">.</span>Rai</a>
-            <div class="nav-right">
-                <ul>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
                     <li><a href="../index.html#case-study">Case Study</a></li>
+                    <li><a href="../index.html#expertise">Expertise</a></li>
                     <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#blog">Blog</a></li>
+                    <li><a href="liver-ultrasound.html">Blog</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
-                <button
-                    type="button"
-                    class="theme-toggle"
-                    id="theme-toggle"
-                    aria-label="Switch to light theme"
-                    title="Switch theme">
-                    <span id="theme-icon" aria-hidden="true">☀</span>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme" title="Switch theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle class="sun-rays" cx="12" cy="12" r="5"></circle>
+                        <g class="sun-rays">
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </g>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button type="button" class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
                 </button>
             </div>
-        </nav>
+        </div>
+    </header>
 
-        <main id="main-content">
-            <article class="article">
-                <a href="../index.html#blog" class="back-link" aria-label="Back to blog">← Back to all articles</a>
+    <main id="main-content">
+        <article class="article article-page container container-narrow">
+            <header class="article-header">
+                <a href="../index.html#blog" class="back-link" aria-label="Back to blog">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to all articles
+                </a>
+
+                <div class="related-callout">
+                    <span aria-hidden="true">💡</span>
+                    <span><strong>Looking for clinical depth?</strong> <a href="liver-ultrasound.html">Liver Ultrasound: A Comprehensive Clinical Guide →</a></span>
+                </div>
 
                 <span class="article-tag">Patient Guide</span>
                 <h1>Abdominal Ultrasound: What It Is and What to Expect</h1>
                 <p class="article-meta">
                     By <strong>Fatima Rai</strong> · BMIS, University of Lahore · Published June 19, 2026
                 </p>
+            </header>
 
-                <p>
-                    If your doctor has recommended an abdominal ultrasound, you probably
-                    have questions. Let's break it down so you know exactly what's coming.
-                </p>
+            <p>If your doctor has recommended an abdominal ultrasound, you probably have questions. Let's break it down so you know exactly what's coming.</p>
 
-                <h2>What Is an Abdominal Ultrasound?</h2>
-                <p>
-                    An abdominal ultrasound uses sound waves — not radiation — to create
-                    images of the organs inside your belly. A small device called a
-                    transducer sends sound waves through your skin, and the echoes that
-                    bounce back form a picture on a screen.
-                </p>
-                <p>
-                    It's completely painless, involves no needles or radiation, and is
-                    considered one of the safest imaging methods available.
-                </p>
+            <h2>What Is an Abdominal Ultrasound?</h2>
+            <p>An abdominal ultrasound uses sound waves — not radiation — to create images of the organs inside your belly. A small device called a transducer sends sound waves through your skin, and the echoes that bounce back form a picture on a screen.</p>
+            <p>It's completely painless, involves no needles or radiation, and is considered one of the safest imaging methods available.</p>
 
-                <h2>What Can an Abdominal Ultrasound Detect?</h2>
-                <p>Doctors use it to look at:</p>
-                <div class="grid grid-2">
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Liver</div>
-                        <div class="grid-card-desc">Checking for cysts, tumors, or fatty liver disease</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <ellipse cx="12" cy="12" rx="8" ry="6"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Gallbladder</div>
-                        <div class="grid-card-desc">Detecting gallstones or inflammation</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-4-2-8-6-12z"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Kidneys</div>
-                        <div class="grid-card-desc">Looking for stones, infections, or abnormal growths</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="9"/>
-                                <path d="M12 7v10"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Spleen</div>
-                        <div class="grid-card-desc">Checking for enlargement or injury</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M3 12h4l3-9 4 18 3-9h4"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Pancreas</div>
-                        <div class="grid-card-desc">Evaluating pain or suspected tumors</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 2v20M2 12h20"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Aorta</div>
-                        <div class="grid-card-desc">Screening for abdominal aortic aneurysm</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-icon" aria-hidden="true">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <rect x="6" y="6" width="12" height="12" rx="6"/>
-                            </svg>
-                        </div>
-                        <div class="grid-card-title">Bladder</div>
-                        <div class="grid-card-desc">Assessing size and wall thickness</div>
-                    </div>
-                </div>
-                <p>
-                    It's also commonly used during pregnancy to monitor the baby, though
-                    that's usually called an obstetric ultrasound.
-                </p>
-
-                <h2>Why Would You Need One?</h2>
-                <p>Your doctor might order an abdominal ultrasound if you have:</p>
-                <div class="grid grid-2">
-                    <div class="grid-card">
-                        <div class="grid-card-title">Persistent abdominal pain</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Unexplained nausea or vomiting</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Swelling in the belly area</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Abnormal blood test results</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Suspected kidney stones or gallstones</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">A family history of certain conditions</div>
-                    </div>
-                </div>
-
-                <h2>How to Prepare</h2>
-                <p>
-                    Preparation is important because it affects how clearly the images
-                    come out. Your doctor will give you specific instructions, but generally:
-                </p>
-                <p><strong>For Most Abdominal Ultrasounds:</strong></p>
-                <ul>
-                    <li>Fast for 8–12 hours before your appointment. Food and drink can make it harder to see certain organs clearly, especially the gallbladder.</li>
-                    <li>Drink only water and take any regular medications with a small sip of water.</li>
-                    <li>Wear loose, comfortable clothing — you may need to lift or remove your shirt.</li>
-                </ul>
-                <p><strong>For Kidney or Bladder Ultrasounds:</strong></p>
-                <ul>
-                    <li>You may be asked to arrive with a full bladder. This helps provide a "window" for the sound waves to travel through. Drink several glasses of water about an hour before your scan.</li>
-                </ul>
-                <p>
-                    Always follow the specific instructions given by your clinic.
-                    If you're unsure, call ahead and ask.
-                </p>
-
-                <h2>What Happens During the Scan</h2>
-                <p>Here's the typical process:</p>
-                <div class="grid grid-2">
-                    <div class="grid-card">
-                        <div class="grid-card-num">1</div>
-                        <div class="grid-card-title">Get comfortable</div>
-                        <div class="grid-card-desc">You'll lie down on an exam table. The sonographer will apply a warm, clear gel to your skin to help the transducer make good contact.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">2</div>
-                        <div class="grid-card-title">Scanning begins</div>
-                        <div class="grid-card-desc">The sonographer moves the transducer across your belly. You might feel slight pressure, but it shouldn't hurt.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">3</div>
-                        <div class="grid-card-title">Position changes</div>
-                        <div class="grid-card-desc">You may be asked to hold your breath briefly or change positions (lie on your side) to get better images.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">4</div>
-                        <div class="grid-card-title">Duration</div>
-                        <div class="grid-card-desc">The whole appointment takes 30–45 minutes. The actual scanning is about 20–30 minutes.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-num">5</div>
-                        <div class="grid-card-title">Results follow-up</div>
-                        <div class="grid-card-desc">The sonographer cannot discuss results with you — a radiologist analyzes the images and sends a report to your doctor.</div>
-                    </div>
-                </div>
-
-                <h2>After the Scan</h2>
-                <div class="grid grid-3">
-                    <div class="grid-card">
-                        <div class="grid-card-title">Resume normal activities</div>
-                        <div class="grid-card-desc">You can eat, drink, and go about your day immediately.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Easy cleanup</div>
-                        <div class="grid-card-desc">The gel might feel cold or sticky — it wipes off easily with a towel or tissue.</div>
-                    </div>
-                    <div class="grid-card">
-                        <div class="grid-card-title">Results in 1–3 days</div>
-                        <div class="grid-card-desc">Your doctor will call you or schedule a follow-up to discuss findings.</div>
-                    </div>
-                </div>
-
-                <h2>Is It Safe?</h2>
-                <p>
-                    Yes. Ultrasound uses no ionizing radiation, making it safe for almost
-                    everyone — including pregnant women. There are no known risks or side effects.
-                </p>
-
-                <div class="key-takeaways">
-                    <h2>Key Takeaways</h2>
-                    <ul>
-                        <li>Painless, radiation-free, and safe</li>
-                        <li>Helps doctors check liver, kidneys, gallbladder, spleen, pancreas, and bladder</li>
-                        <li>Usually requires fasting beforehand</li>
-                        <li>Full bladder may be needed for kidney or pelvic scans</li>
-                        <li>Results in 1–3 days through your referring doctor</li>
-                    </ul>
-                </div>
-
-                <div class="article-cta">
-                    <p>Have questions about an upcoming scan? Feel free to reach out.</p>
-                    <a href="mailto:fr166255@gmail.com">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <path d="M22 6l-10 7L2 6"/>
+            <h2>What Can an Abdominal Ultrasound Detect?</h2>
+            <p>Doctors use it to look at:</p>
+            <div class="grid grid-2">
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
-                        Get in touch
-                    </a>
+                    </div>
+                    <div class="grid-card-title">Liver</div>
+                    <div class="grid-card-desc">Checking for cysts, tumors, or fatty liver disease</div>
                 </div>
-            </article>
-        </main>
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <ellipse cx="12" cy="12" rx="8" ry="6"/>
+                        </svg>
+                    </div>
+                    <div class="grid-card-title">Gallbladder</div>
+                    <div class="grid-card-desc">Detecting gallstones or inflammation</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-4-2-8-6-12z"/>
+                        </svg>
+                    </div>
+                    <div class="grid-card-title">Kidneys</div>
+                    <div class="grid-card-desc">Looking for stones, infections, or abnormal growths</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 7v10"/>
+                        </svg>
+                    </div>
+                    <div class="grid-card-title">Spleen</div>
+                    <div class="grid-card-desc">Checking for enlargement or injury</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M3 12h4l3-9 4 18 3-9h4"/>
+                        </svg>
+                    </div>
+                    <div class="grid-card-title">Pancreas</div>
+                    <div class="grid-card-desc">Evaluating pain or suspected tumors</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 2v20M2 12h20"/>
+                        </svg>
+                    </div>
+                    <div class="grid-card-title">Aorta</div>
+                    <div class="grid-card-desc">Screening for abdominal aortic aneurysm</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="6" y="6" width="12" height="12" rx="6"/>
+                        </svg>
+                    </div>
+                    <div class="grid-card-title">Bladder</div>
+                    <div class="grid-card-desc">Assessing size and wall thickness</div>
+                </div>
+            </div>
+            <p>It's also commonly used during pregnancy to monitor the baby, though that's usually called an obstetric ultrasound.</p>
 
-        <footer>
+            <h2>Why Would You Need One?</h2>
+            <p>Your doctor might order an abdominal ultrasound if you have:</p>
+            <div class="grid grid-2">
+                <div class="grid-card">
+                    <div class="grid-card-title">Persistent abdominal pain</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Unexplained nausea or vomiting</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Swelling in the belly area</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Abnormal blood test results</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Suspected kidney stones or gallstones</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">A family history of certain conditions</div>
+                </div>
+            </div>
+
+            <h2>How to Prepare</h2>
+            <p>Preparation is important because it affects how clearly the images come out. Your doctor will give you specific instructions, but generally:</p>
+            <p><strong>For Most Abdominal Ultrasounds:</strong></p>
+            <ul>
+                <li>Fast for 8–12 hours before your appointment. Food and drink can make it harder to see certain organs clearly, especially the gallbladder.</li>
+                <li>Drink only water and take any regular medications with a small sip of water.</li>
+                <li>Wear loose, comfortable clothing — you may need to lift or remove your shirt.</li>
+            </ul>
+            <p><strong>For Kidney or Bladder Ultrasounds:</strong></p>
+            <ul>
+                <li>You may be asked to arrive with a full bladder. This helps provide a "window" for the sound waves to travel through. Drink several glasses of water about an hour before your scan.</li>
+            </ul>
+            <p>Always follow the specific instructions given by your clinic. If you're unsure, call ahead and ask.</p>
+
+            <h2>What Happens During the Scan</h2>
+            <p>Here's the typical process:</p>
+            <div class="grid grid-2">
+                <div class="grid-card">
+                    <div class="grid-card-num">1</div>
+                    <div class="grid-card-title">Get comfortable</div>
+                    <div class="grid-card-desc">You'll lie down on an exam table. The sonographer will apply a warm, clear gel to your skin to help the transducer make good contact.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">2</div>
+                    <div class="grid-card-title">Scanning begins</div>
+                    <div class="grid-card-desc">The sonographer moves the transducer across your belly. You might feel slight pressure, but it shouldn't hurt.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">3</div>
+                    <div class="grid-card-title">Position changes</div>
+                    <div class="grid-card-desc">You may be asked to hold your breath briefly or change positions (lie on your side) to get better images.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">4</div>
+                    <div class="grid-card-title">Duration</div>
+                    <div class="grid-card-desc">The whole appointment takes 30–45 minutes. The actual scanning is about 20–30 minutes.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-num">5</div>
+                    <div class="grid-card-title">Results follow-up</div>
+                    <div class="grid-card-desc">The sonographer cannot discuss results with you — a radiologist analyzes the images and sends a report to your doctor.</div>
+                </div>
+            </div>
+
+            <h2>After the Scan</h2>
+            <div class="grid grid-3">
+                <div class="grid-card">
+                    <div class="grid-card-title">Resume normal activities</div>
+                    <div class="grid-card-desc">You can eat, drink, and go about your day immediately.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Easy cleanup</div>
+                    <div class="grid-card-desc">The gel might feel cold or sticky — it wipes off easily with a towel or tissue.</div>
+                </div>
+                <div class="grid-card">
+                    <div class="grid-card-title">Results in 1–3 days</div>
+                    <div class="grid-card-desc">Your doctor will call you or schedule a follow-up to discuss findings.</div>
+                </div>
+            </div>
+
+            <h2>Is It Safe?</h2>
+            <p>Yes. Ultrasound uses no ionizing radiation, making it safe for almost everyone — including pregnant women. There are no known risks or side effects.</p>
+
+            <div class="key-takeaways">
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li>Painless, radiation-free, and safe</li>
+                    <li>Helps doctors check liver, kidneys, gallbladder, spleen, pancreas, and bladder</li>
+                    <li>Usually requires fasting beforehand</li>
+                    <li>Full bladder may be needed for kidney or pelvic scans</li>
+                    <li>Results in 1–3 days through your referring doctor</li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <p>Have questions about an upcoming scan? Feel free to reach out.</p>
+                <a href="mailto:fr166255@gmail.com">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Get in touch
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
             <span>&copy; 2025 Fatima Rai. All rights reserved.</span>
-            <a href="../index.html">fatimarai.com</a>
-        </footer>
-    </div>
+            <ul class="footer-links">
+                <li><a href="../index.html#case-study">Case Study</a></li>
+                <li><a href="../index.html#expertise">Expertise</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const root = document.documentElement;
-
-        function getPreferredTheme() {
-            const saved = localStorage.getItem('theme');
-            if (saved) return saved;
-            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
-
-        function setTheme(theme) {
-            if (theme === 'light') {
-                root.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '🌙';
-                themeToggle.setAttribute('aria-label', 'Switch to dark theme');
-            } else {
-                root.removeAttribute('data-theme');
-                themeIcon.textContent = '☀';
-                themeToggle.setAttribute('aria-label', 'Switch to light theme');
-            }
-            localStorage.setItem('theme', theme);
-        }
-
-        setTheme(getPreferredTheme());
-
-        themeToggle.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-            setTheme(current === 'light' ? 'dark' : 'light');
-        });
-    </script>
+    <noscript>
+        <style>
+            .preloader { display: none; }
+            .navbar { transform: translate(-50%, 0); }
+        </style>
+    </noscript>
+    <script src="../assets/scripts.js"></script>
 </body>
 </html>

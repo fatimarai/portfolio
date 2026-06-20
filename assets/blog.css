@@ -1,0 +1,411 @@
+/* =====================================================
+   FATIMA RAI — BLOG STYLES
+   Article layout and clinical content components
+   ===================================================== */
+
+.article-page {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+}
+
+.article-header {
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: color 0.3s, transform 0.3s var(--ease-out-expo);
+}
+
+.back-link:hover {
+    color: var(--accent);
+    transform: translateX(-4px);
+}
+
+.back-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.article-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+}
+
+.article h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+
+.article-meta strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.article h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+.article h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+}
+
+.article p {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.article ul,
+.article ol {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.article ul li,
+.article ol li {
+    margin-bottom: 0.6rem;
+    line-height: 1.8;
+}
+
+.article strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.article em {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Related article callout */
+.related-callout {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.related-callout a {
+    color: var(--accent);
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.related-callout a:hover {
+    opacity: 0.8;
+}
+
+/* Grid cards */
+.article .grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.article .grid-2 { grid-template-columns: repeat(2, 1fr); }
+.article .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.grid-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s var(--ease-out-expo), box-shadow 0.3s;
+}
+
+.grid-card:hover {
+    border-color: rgba(224, 139, 92, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px var(--shadow);
+}
+
+.grid-card-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(224, 139, 92, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.grid-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.grid-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.grid-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.grid-card-desc ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.grid-card-desc li {
+    margin-bottom: 0.25rem;
+}
+
+/* Clinical tables */
+.clinical-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.clinical-table thead {
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+}
+
+.clinical-table th,
+.clinical-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+.clinical-table th {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.clinical-table tbody tr:not(:last-child) {
+    border-bottom: 1px solid var(--border);
+}
+
+.clinical-table tbody tr:hover {
+    background: var(--bg-elevated);
+}
+
+/* Clinical note */
+.clinical-note {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 14px 14px 0;
+    margin: 1.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.clinical-note strong {
+    color: var(--accent);
+}
+
+/* Key takeaways */
+.key-takeaways {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+}
+
+.key-takeaways h2 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.key-takeaways ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.key-takeaways ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.key-takeaways ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+/* Article CTA */
+.article-cta {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.article-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+}
+
+.article-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 1rem 1.75rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s;
+    box-shadow: 0 10px 30px rgba(224, 139, 92, 0.2);
+}
+
+.article-cta a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(224, 139, 92, 0.3);
+}
+
+.article-cta a svg {
+    width: 18px;
+    height: 18px;
+}
+
+.article-disclaimer {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* Numbered list variant */
+.numbered-list {
+    counter-reset: item;
+    list-style: none;
+    padding-left: 0;
+}
+
+.numbered-list li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+.numbered-list li::before {
+    content: counter(item, decimal-leading-zero);
+    counter-increment: item;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 500;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-page {
+        padding-top: 7rem;
+    }
+
+    .article .grid-2,
+    .article .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .clinical-table {
+        font-size: 0.85rem;
+    }
+
+    .clinical-table th,
+    .clinical-table td {
+        padding: 0.75rem;
+    }
+
+    .key-takeaways,
+    .article-cta {
+        padding: 1.5rem;
+    }
+}
