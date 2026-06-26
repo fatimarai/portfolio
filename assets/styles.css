@@ -933,6 +933,10 @@ button {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.blog-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .blog-card {
     display: flex;
     flex-direction: column;
@@ -1179,7 +1183,8 @@ button {
 
 /* ----------------- RESPONSIVE ----------------- */
 @media (max-width: 1024px) {
-    .expertise-grid {
+    .expertise-grid,
+    .blog-grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -1234,7 +1239,8 @@ button {
     
     .expertise-grid,
     .blog-grid,
-    .blog-grid-3 {
+    .blog-grid-3,
+    .blog-grid-4 {
         grid-template-columns: 1fr;
     }
     
